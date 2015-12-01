@@ -19,6 +19,9 @@ public:
     List<U> mapTo(std::function<U(T)> f) const;
     template <typename U>
     List<U> mapTo(std::function<U(T, int)> f) const;
+
+    void forEach(std::function<T(T)> f) const;
+    void forEach(std::function<T(T, int)> f) const;
 };
 
 
@@ -67,5 +70,22 @@ List<U> List<T>::mapTo(std::function<U(T, int)> f) const
     return result;
 }
 
+template <typename T>
+void List<T>::forEach(std::function<T(T)> f) const
+{
+    return forEach([f](T item, int index) {
+        Q_UNUSED(index);
+        return f(item);
+    });
+}
+
+template <typename T>
+void List<T>::forEach(std::function<T(T, int)> f) const
+{
+    int i = 0;
+    for (auto it = QList<T>::constBegin(); it != QList<T>::constEnd(); ++it, ++i) {
+        f(*it, i);
+    }
+}
 
 #endif // LIST_H
