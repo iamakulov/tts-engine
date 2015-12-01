@@ -12,6 +12,9 @@ public:
     template <typename... Args>
     List(Args... params);
 
+    List<T> filter(std::function<bool(T)> f) const;
+    List<T> filter(std::function<bool(T, int)> f) const;
+
     List<T> map(std::function<T(T)> f) const;
     List<T> map(std::function<T(T, int)> f) const;
 
@@ -31,6 +34,28 @@ List<T>::List(Args... params)
     : QList<T>(params...)
 {
 
+}
+
+template <typename T>
+List<T> List<T>::filter(std::function<bool(T)> f) const
+{
+    return filter([f](T item, int index) {
+        Q_UNUSED(index);
+        return f(item);
+    });
+}
+
+template <typename T>
+List<T> List<T>::filter(std::function<bool(T, int)> f) const
+{
+    List<T> result;
+    int i = 0;
+    for (auto it = QList<T>::constBegin(); it != QList<T>::constEnd(); ++it, ++i) {
+        if (f(*it, i)) {
+            result.append(*it);
+        }
+    }
+    return result;
 }
 
 template <typename T>
