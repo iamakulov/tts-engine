@@ -100,7 +100,7 @@ void List<T>::forEach(std::function<T(T)> f) const
 {
     return forEach([f](T item, int index) {
         Q_UNUSED(index);
-        return f(item);
+        f(item);
     });
 }
 
