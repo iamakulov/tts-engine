@@ -12,6 +12,9 @@ public:
     template <typename... Args>
     List(Args... params);
 
+    template <typename U>
+    List(std::initializer_list<U> params);
+
     List<T> filter(std::function<bool(T)> f) const;
     List<T> filter(std::function<bool(T, int)> f) const;
 
@@ -32,6 +35,14 @@ template <typename T>
 template <typename... Args>
 List<T>::List(Args... params)
     : QList<T>(params...)
+{
+
+}
+
+template <typename T>
+template <typename U>
+List<T>::List(std::initializer_list<U> params)
+    : QList<T>(params)
 {
 
 }
