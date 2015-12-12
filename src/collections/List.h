@@ -15,16 +15,16 @@ public:
     template <typename U>
     List(std::initializer_list<U> params);
 
-    List<T> filter(std::function<bool(T)> f) const;
-    List<T> filter(std::function<bool(T, int)> f) const;
+    List<T> filtered(std::function<bool(T)> f) const;
+    List<T> filtered(std::function<bool(T, int)> f) const;
 
-    List<T> map(std::function<T(T)> f) const;
-    List<T> map(std::function<T(T, int)> f) const;
+    List<T> mapped(std::function<T(T)> f) const;
+    List<T> mapped(std::function<T(T, int)> f) const;
 
     template <typename U>
-    List<U> mapTo(std::function<U(T)> f) const;
+    List<U> mappedTo(std::function<U(T)> f) const;
     template <typename U>
-    List<U> mapTo(std::function<U(T, int)> f) const;
+    List<U> mappedTo(std::function<U(T, int)> f) const;
 
     void forEach(std::function<T(T)> f) const;
     void forEach(std::function<T(T, int)> f) const;
@@ -48,7 +48,7 @@ List<T>::List(std::initializer_list<U> params)
 }
 
 template <typename T>
-List<T> List<T>::filter(std::function<bool(T)> f) const
+List<T> List<T>::filtered(std::function<bool(T)> f) const
 {
     return filter([f](T item, int index) {
         Q_UNUSED(index);
@@ -57,7 +57,7 @@ List<T> List<T>::filter(std::function<bool(T)> f) const
 }
 
 template <typename T>
-List<T> List<T>::filter(std::function<bool(T, int)> f) const
+List<T> List<T>::filtered(std::function<bool(T, int)> f) const
 {
     List<T> result;
     int i = 0;
@@ -70,7 +70,7 @@ List<T> List<T>::filter(std::function<bool(T, int)> f) const
 }
 
 template <typename T>
-List<T> List<T>::map(std::function<T(T)> f) const
+List<T> List<T>::mapped(std::function<T(T)> f) const
 {
     return map([f](T item, int index) {
         Q_UNUSED(index);
@@ -79,16 +79,16 @@ List<T> List<T>::map(std::function<T(T)> f) const
 }
 
 template <typename T>
-List<T> List<T>::map(std::function<T(T, int)> f) const
+List<T> List<T>::mapped(std::function<T(T, int)> f) const
 {
-    return mapTo<T>(f);
+    return mappedTo<T>(f);
 }
 
 template <typename T>
 template <typename U>
-List<U> List<T>::mapTo(std::function<U(T)> f) const
+List<U> List<T>::mappedTo(std::function<U(T)> f) const
 {
-    return mapTo<U>([f](T item, int index) {
+    return mappedTo<U>([f](T item, int index) {
         Q_UNUSED(index);
         return f(item);
     });
@@ -96,7 +96,7 @@ List<U> List<T>::mapTo(std::function<U(T)> f) const
 
 template <typename T>
 template <typename U>
-List<U> List<T>::mapTo(std::function<U(T, int)> f) const
+List<U> List<T>::mappedTo(std::function<U(T, int)> f) const
 {
     List<U> result;
     int i = 0;
