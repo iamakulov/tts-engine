@@ -51,7 +51,7 @@ List<T>::List(std::initializer_list<T> params)
 template <typename T>
 List<T> List<T>::filtered(std::function<bool(T)> f) const
 {
-    return filter([f](T item, int index) {
+    return filtered([f](T item, int index) {
         Q_UNUSED(index);
         return f(item);
     });
@@ -73,7 +73,7 @@ List<T> List<T>::filtered(std::function<bool(T, int)> f) const
 template <typename T>
 List<T> List<T>::mapped(std::function<T(T)> f) const
 {
-    return map([f](T item, int index) {
+    return mapped([f](T item, int index) {
         Q_UNUSED(index);
         return f(item);
     });
