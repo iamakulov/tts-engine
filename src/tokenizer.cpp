@@ -8,7 +8,7 @@ Tokenizer::Tokenizer(const List<TokenDefinition> &tokenDefinitions)
 
 }
 
-List<Token> Tokenizer::tokenize(const QString &text)
+List<Token> Tokenizer::tokenize(const QString &text) const
 {
     QString processedText = text;
     List<Token> result;

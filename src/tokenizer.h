@@ -12,7 +12,7 @@ class Tokenizer
 public:
     Tokenizer(const List<TokenDefinition> &tokenDefinitions);
 
-    List<Token> tokenize(const QString &text);
+    List<Token> tokenize(const QString &text) const;
 
 private:
     const List<TokenDefinition> m_tokenDefinitions;
