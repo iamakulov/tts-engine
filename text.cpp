@@ -11,7 +11,7 @@ List<Phrase> Text::splitToPhrases() const
 {
     return splitTextToSentences(m_text)
         .mapTo<Phrase>([](QString phrase) {
-            return Phrase::parse(phrase);
+            return Phrase(phrase);
         });
 }
 
