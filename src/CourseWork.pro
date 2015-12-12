@@ -17,10 +17,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         view.cpp \
     collections/List.cpp \
-    tokenizer.cpp
+    tokenizer.cpp \
+    structures/tokendefinition.cpp
 
 HEADERS  += view.h \
     collections/List.h \
-    tokenizer.h
+    tokenizer.h \
+    structures/tokendefinition.h
 
 FORMS    += view.ui
