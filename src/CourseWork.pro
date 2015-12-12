@@ -20,13 +20,15 @@ SOURCES += main.cpp\
     tokenizer.cpp \
     structures/tokendefinition.cpp \
     structures/token.cpp \
-    structures/reassemblerrule.cpp
+    transformer.cpp \
+    structures/transformationrule.cpp
 
 HEADERS  += view.h \
     collections/List.h \
     tokenizer.h \
     structures/tokendefinition.h \
     structures/token.h \
-    structures/reassemblerrule.h
+    transformer.h \
+    structures/transformationrule.h
 
 FORMS    += view.ui
