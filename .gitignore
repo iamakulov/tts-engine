@@ -1,0 +1,7 @@
+*.moc
+*.o
+*.exe
+*.autosave
+*.pro.user
+Makefile
+Makefile.*
