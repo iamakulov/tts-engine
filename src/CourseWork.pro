@@ -18,11 +18,13 @@ SOURCES += main.cpp\
         view.cpp \
     collections/List.cpp \
     tokenizer.cpp \
-    structures/tokendefinition.cpp
+    structures/tokendefinition.cpp \
+    structures/token.cpp
 
 HEADERS  += view.h \
     collections/List.h \
     tokenizer.h \
-    structures/tokendefinition.h
+    structures/tokendefinition.h \
+    structures/token.h
 
 FORMS    += view.ui
