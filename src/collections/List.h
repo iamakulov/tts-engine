@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QList>
 #include <functional>
+#include <algorithm>
 
 template <typename T>
 class List : public QList<T>
@@ -28,6 +29,8 @@ public:
 
     void forEach(std::function<T(T)> f) const;
     void forEach(std::function<T(T, int)> f) const;
+
+    List<T> sorted(std::function<bool (T, T)> f = std::less<T>()) const;
 };
 
 
@@ -122,6 +125,14 @@ void List<T>::forEach(std::function<T(T, int)> f) const
     for (auto it = QList<T>::constBegin(); it != QList<T>::constEnd(); ++it, ++i) {
         f(*it, i);
     }
+}
+
+template <typename T>
+List<T> List<T>::sorted(std::function<bool(T, T)> f) const
+{
+    List<T> listCopy = *this;
+    std::stable_sort(listCopy.begin(), listCopy.end(), f);
+    return listCopy;
 }
 
 #endif // LIST_H
