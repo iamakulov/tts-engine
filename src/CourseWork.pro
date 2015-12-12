@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui script
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,12 +19,14 @@ SOURCES += main.cpp\
     collections/List.cpp \
     tokenizer.cpp \
     structures/tokendefinition.cpp \
-    structures/token.cpp
+    structures/token.cpp \
+    structures/reassemblerrule.cpp
 
 HEADERS  += view.h \
     collections/List.h \
     tokenizer.h \
     structures/tokendefinition.h \
-    structures/token.h
+    structures/token.h \
+    structures/reassemblerrule.h
 
 FORMS    += view.ui
