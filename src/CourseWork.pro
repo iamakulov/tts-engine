@@ -15,8 +15,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        view.cpp
+        view.cpp \
+    collections/List.cpp
 
-HEADERS  += view.h
+HEADERS  += view.h \
+    collections/List.h
 
 FORMS    += view.ui
