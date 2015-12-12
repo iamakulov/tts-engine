@@ -27,8 +27,8 @@ public:
     template <typename U>
     List<U> mappedTo(std::function<U(T, int)> f) const;
 
-    void forEach(std::function<T(T)> f) const;
-    void forEach(std::function<T(T, int)> f) const;
+    void forEach(std::function<void(T)> f) const;
+    void forEach(std::function<void(T, int)> f) const;
 
     List<T> sorted(std::function<bool (T, T)> f = std::less<T>()) const;
 };
@@ -110,7 +110,7 @@ List<U> List<T>::mappedTo(std::function<U(T, int)> f) const
 }
 
 template <typename T>
-void List<T>::forEach(std::function<T(T)> f) const
+void List<T>::forEach(std::function<void(T)> f) const
 {
     return forEach([f](T item, int index) {
         Q_UNUSED(index);
@@ -119,7 +119,7 @@ void List<T>::forEach(std::function<T(T)> f) const
 }
 
 template <typename T>
-void List<T>::forEach(std::function<T(T, int)> f) const
+void List<T>::forEach(std::function<void(T, int)> f) const
 {
     int i = 0;
     for (auto it = QList<T>::constBegin(); it != QList<T>::constEnd(); ++it, ++i) {
