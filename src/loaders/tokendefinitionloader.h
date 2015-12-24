@@ -12,6 +12,9 @@ public:
 
     List<TokenDefinition> getData();
 
+private /*methods*/:
+    bool reportDataErrors(const QJsonDocument &json) const;
+
 private /*members*/:
     QTextStream* m_inputStream;
 };

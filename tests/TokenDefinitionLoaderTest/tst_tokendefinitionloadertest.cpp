@@ -43,9 +43,7 @@ void TokenDefinitionLoaderTest::getDefinitions_data()
 
     QTest::newRow("Invalid token structure")
         << QString("[{'name': 'word', 'pattern': '\\\\w+'}, {'name': 'space', 'value': '\\\\s+'}]").replace("'", "\"")
-        << List<TokenDefinition>{
-           TokenDefinition("word", "\\w+")
-        };
+        << List<TokenDefinition>();
 }
 
 void TokenDefinitionLoaderTest::getDefinitions()
