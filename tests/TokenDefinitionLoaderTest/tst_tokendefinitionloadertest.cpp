@@ -55,7 +55,7 @@ void TokenDefinitionLoaderTest::getDefinitions()
 
     QTextStream stream(&inputText);
 
-    QCOMPARE(TokenDefinitionLoader(&stream).getDefinitions(), parsedTokens);
+    QCOMPARE(TokenDefinitionLoader(&stream).getData(), parsedTokens);
 }
 
 QTEST_APPLESS_MAIN(TokenDefinitionLoaderTest)

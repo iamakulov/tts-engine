@@ -10,7 +10,7 @@ TokenDefinitionLoader::TokenDefinitionLoader(QTextStream *inputStream)
 
 }
 
-List<TokenDefinition> TokenDefinitionLoader::getDefinitions()
+List<TokenDefinition> TokenDefinitionLoader::getData()
 {
     QByteArray textData = m_inputStream->readAll().toUtf8();
     QJsonDocument json = QJsonDocument::fromJson(textData);

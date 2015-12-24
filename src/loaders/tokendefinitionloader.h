@@ -10,7 +10,7 @@ class TokenDefinitionLoader
 public:
     TokenDefinitionLoader(QTextStream* inputStream);
 
-    List<TokenDefinition> getDefinitions();
+    List<TokenDefinition> getData();
 
 private /*members*/:
     QTextStream* m_inputStream;
