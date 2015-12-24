@@ -1,18 +1,18 @@
-#ifndef REASSEMBLERRULE_H
-#define REASSEMBLERRULE_H
+#ifndef TRANSFORMATIONRULE_H
+#define TRANSFORMATIONRULE_H
 
 #include <functional>
 #include "../collections/List.cpp"
 #include "token.h"
 
 
-class ReassemblerRule
+class TransformationRule
 {
 public:
     typedef List<std::function<bool(Token)>> MatchingSequenceType;
     typedef std::function<List<Token>(List<Token>)> HandlerType;
 
-    ReassemblerRule(MatchingSequenceType matchingSequence = MatchingSequenceType(), HandlerType handler = HandlerType());
+    TransformationRule(MatchingSequenceType matchingSequence = MatchingSequenceType(), HandlerType handler = HandlerType());
 
     MatchingSequenceType matchingSequence() const;
     HandlerType handler() const;
@@ -22,4 +22,4 @@ private:
     HandlerType m_handler;
 };
 
-#endif // REASSEMBLERRULE_H
+#endif // TRANSFORMATIONRULE_H
