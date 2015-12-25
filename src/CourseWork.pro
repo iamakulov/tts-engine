@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     structures/token.cpp \
     transformer.cpp \
     structures/transformationrule.cpp \
-    loaders/tokendefinitionloader.cpp
+    loaders/tokendefinitionloader.cpp \
+    loaders/transformationruleloader.cpp
 
 HEADERS  += view.h \
     collections/List.h \
@@ -31,6 +32,7 @@ HEADERS  += view.h \
     structures/token.h \
     transformer.h \
     structures/transformationrule.h \
-    loaders/tokendefinitionloader.h
+    loaders/tokendefinitionloader.h \
+    loaders/transformationruleloader.h
 
 FORMS    += view.ui
