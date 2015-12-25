@@ -30,6 +30,11 @@ public:
     void forEach(std::function<void(T, int)> f) const;
 
     List<T> sorted(std::function<bool (T, T)> f = std::less<T>()) const;
+
+    template<typename U>
+    U reducedTo(std::function<U(U, T)> f, U initial) const;
+    template<typename U>
+    U reducedTo(std::function<U(U, T, int)> f, U initial) const;
 };
 
 
@@ -131,6 +136,30 @@ List<T> List<T>::sorted(std::function<bool(T, T)> f) const
     List<T> listCopy = *this;
     std::stable_sort(listCopy.begin(), listCopy.end(), f);
     return listCopy;
+}
+
+template <typename T>
+template <typename U>
+U List<T>::reducedTo(std::function<U(U, T)> f, U initial) const
+{
+    return reducedTo([f](U container, T item, int index) {
+        Q_UNUSED(index);
+        return f(container, item);
+    });
+}
+
+template <typename T>
+template <typename U>
+U List<T>::reducedTo(std::function<U(U, T, int)> f, U initial) const
+{
+    U result = initial;
+
+    int i = 0;
+    for (auto it = QList<T>::constBegin(); it != QList<T>::constEnd(); ++it, ++i) {
+        result = f(result, *it, i);
+    }
+
+    return result;
 }
 
 #endif // LIST_H
