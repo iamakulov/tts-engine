@@ -34,7 +34,7 @@ List<TokenDefinition> TokenDefinitionLoader::getData()
 bool TokenDefinitionLoader::reportDataErrors(const QJsonDocument &json) const
 {
     if (!json.isArray()) {
-        qWarning() << "TokenDefinitionLoader#getData: the passed text stream cannot be converted to a JSON array.";
+        qWarning() << "TokenDefinitionLoader#reportDataErrors: the passed text stream cannot be converted to a JSON array.";
         qWarning() << "The parsed JSON content:" << json.toJson();
         return false;
     }
@@ -45,20 +45,20 @@ bool TokenDefinitionLoader::reportDataErrors(const QJsonDocument &json) const
             QVariantMap object = arrayElement.toMap();
 
             if (!(object.contains("name") && object.contains("pattern"))) {
-                qWarning() << "TokenDefinitionLoader#getDefinitions: an array element is not an object or does not contain 'name' or 'pattern' keys.";
+                qWarning() << "TokenDefinitionLoader#reportDataErrors: an array element is not an object or does not contain 'name' or 'pattern' keys.";
                 qWarning() << "The parsed value keys:" << object.keys();
                 return false;
             }
 
             if (object["name"].userType() != QVariant::String) {
-                qWarning() << "TokenDefinitionLoader#getDefinitions: the 'name' value of the array element is not a string.";
+                qWarning() << "TokenDefinitionLoader#reportDataErrors: the 'name' value of the array element is not a string.";
                 qWarning() << "The parsed value keys:" << object.keys();
                 qWarning() << "The value type:" << object["name"].userType();
                 return false;
             }
 
             if (object["pattern"].userType() != QVariant::String) {
-                qWarning() << "TokenDefinitionLoader#getDefinitions: the 'name' value of the array element is not a string.";
+                qWarning() << "TokenDefinitionLoader#reportDataErrors: the 'name' value of the array element is not a string.";
                 qWarning() << "The parsed value keys:" << object.keys();
                 qWarning() << "The value type:" << object["pattern"].userType();
                 return false;

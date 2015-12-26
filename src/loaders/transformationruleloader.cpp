@@ -89,7 +89,7 @@ List<TransformationRule> TransformationRuleLoader::getData()
 bool TransformationRuleLoader::reportDataErrors(const QScriptValue &value)
 {
     if (!value.isArray()) {
-        qWarning() << "TransformationRuleLoader#getData: the passed text stream cannot be evaluated as an array.";
+        qWarning() << "TransformationRuleLoader#reportDataErrors: the passed text stream cannot be evaluated as an array.";
         qWarning() << "The evaluated value:" << value.toString();
         return false;
     }
@@ -100,7 +100,7 @@ bool TransformationRuleLoader::reportDataErrors(const QScriptValue &value)
             // Check the matching sequence validity
             QScriptValue matchingSequence = object.property("matchingSequence");
             if (!matchingSequence.isArray()) {
-                qWarning() << "TransformationRuleLoader#getData: the matchingSequence key is not an array.";
+                qWarning() << "TransformationRuleLoader#reportDataErrors: the matchingSequence key is not an array.";
                 qWarning() << "The parsed value:" << matchingSequence.toString();
                 return false;
             }
@@ -112,7 +112,7 @@ bool TransformationRuleLoader::reportDataErrors(const QScriptValue &value)
                 });
 
             if (validMatchingSequenceItems.length() != allItems.length()) {
-                qWarning() << "TransformationRuleLoader#getData:" << allItems.length() - validMatchingSequenceItems.length()
+                qWarning() << "TransformationRuleLoader#reportDataErrors:" << allItems.length() - validMatchingSequenceItems.length()
                            << "mathcingSequence items are not functions.";
                 qWarning() << "The parsed matchingSequence value:" << matchingSequence.toString();
                 return false;
@@ -121,7 +121,7 @@ bool TransformationRuleLoader::reportDataErrors(const QScriptValue &value)
             // Check the handler validity
             QScriptValue handler = object.property("handler");
             if (!handler.isFunction()) {
-                qWarning() << "TransformationRuleLoader#getData: the handler is not a function.";
+                qWarning() << "TransformationRuleLoader#reportDataErrors: the handler is not a function.";
                 qWarning() << "The parsed value:" << handler.toString();
                 return false;
             }
@@ -134,7 +134,7 @@ bool TransformationRuleLoader::reportDataErrors(const QScriptValue &value)
     }
 
     if (m_engine->hasUncaughtException()) {
-        qWarning() << "TransformationRuleLoader#getData: an exception occurred while parsing the passed text stream.";
+        qWarning() << "TransformationRuleLoader#reportDataErrors: an exception occurred while parsing the passed text stream.";
         qWarning() << "The exception:" << m_engine->uncaughtException().toString();
         qWarning() << "The exception line number:" << m_engine->uncaughtExceptionLineNumber();
         return false;
@@ -151,7 +151,7 @@ bool TransformationRuleLoader::reportDataErrors(const QScriptValue &value)
 bool TransformationRuleLoader::reportHandlerResultError(const QScriptValue &handler, const QScriptValue &result) const
 {
     if (!result.isArray()) {
-        qWarning() << "TransformationRuleLoader#checkHandlerResult: the result of the JavaScript handler call is not an array.";
+        qWarning() << "TransformationRuleLoader#reportHandlerResultError: the result of the JavaScript handler call is not an array.";
         qWarning() << "The handler:" << handler.toString();
         qWarning() << "The result:" << result.toString();
         return false;
@@ -161,7 +161,7 @@ bool TransformationRuleLoader::reportHandlerResultError(const QScriptValue &hand
     auto validItems = allItems.filtered([this](QScriptValue object) {
         bool isTokenValid = object.isObject() && object.property("name").isString() && object.property("data").isString();
         if (!isTokenValid) {
-            qWarning() << "TransformationRuleLoader#checkTokenObjectValidity: a JavaScript token object is ill-formed.";
+            qWarning() << "TransformationRuleLoader#reportHandlerResultError: a JavaScript token object is ill-formed.";
             qWarning() << "Either the value is not an object or `name` and/or `data` keys are absent.";
             qWarning() << "The value:" << object.toString();
             qWarning() << "The name key:" << object.property("name").toString();
