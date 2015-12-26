@@ -142,10 +142,10 @@ template <typename T>
 template <typename U>
 U List<T>::reducedTo(std::function<U(U, T)> f, U initial) const
 {
-    return reducedTo([f](U container, T item, int index) {
+    return reducedTo<U>([f](U collector, T item, int index) {
         Q_UNUSED(index);
-        return f(container, item);
-    });
+        return f(collector, item);
+    }, initial);
 }
 
 template <typename T>
