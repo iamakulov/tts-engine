@@ -20,6 +20,7 @@ private:
 };
 
 namespace TokenName {
+    const QString WORD = "WORD";
     const QString LETTER = "LETTER";
     const QString WORD_SEPARATOR = "WORD_SEPARATOR";
     const QString SOUND = "SOUND";
