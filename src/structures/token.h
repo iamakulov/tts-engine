@@ -19,4 +19,10 @@ private:
     QString m_data;
 };
 
+namespace TokenName {
+    const QString LETTER = "LETTER";
+    const QString WORD_SEPARATOR = "WORD_SEPARATOR";
+    const QString SOUND = "SOUND";
+}
+
 #endif // TOKEN_H
