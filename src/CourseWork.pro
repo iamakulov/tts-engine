@@ -26,6 +26,7 @@ SOURCES += main.cpp\
     loaders/transformationruleloader.cpp \
     loaders/ltsruleloader.cpp \
     structures/ltsrule.cpp \
+    reassembler.cpp \
     transcriber.cpp
 
 HEADERS  += view.h \
@@ -39,6 +40,7 @@ HEADERS  += view.h \
     loaders/transformationruleloader.h \
     loaders/ltsruleloader.h \
     structures/ltsrule.h \
+    reassembler.h \
     transcriber.h
 
 FORMS    += view.ui
