@@ -9,6 +9,7 @@
 class TransformationRule
 {
 public:
+    typedef std::function<bool(Token)> MatcherType;
     typedef List<std::function<bool(Token)>> MatchingSequenceType;
     typedef std::function<List<Token>(List<Token>)> HandlerType;
 

@@ -38,7 +38,7 @@ List<TransformationRule> TransformationRuleLoader::getData()
             // Convert a JavaScript-encoded matching sequence to C++
             auto matchingSequence = convertArrayToList(object.property("matchingSequence"))
                 // ...This wraps each JavaScript function with a C++ lambda
-                .mappedTo<std::function<bool(Token)>>([this](const QScriptValue &tokenMatcher) {
+                .mappedTo<TransformationRule::MatcherType>([this](const QScriptValue &tokenMatcher) {
                     return [this, tokenMatcher](Token token) {
                         QScriptValue m(tokenMatcher); // Copy the validator to prevent the SEGFAULT
 
