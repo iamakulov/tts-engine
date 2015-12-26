@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     loaders/ltsruleloader.cpp \
     structures/ltsrule.cpp \
     reassembler.cpp \
-    transcriber.cpp
+    transcriber.cpp \
+    lettersplitter.cpp
 
 HEADERS  += view.h \
     collections/List.h \
@@ -41,6 +42,7 @@ HEADERS  += view.h \
     loaders/ltsruleloader.h \
     structures/ltsrule.h \
     reassembler.h \
-    transcriber.h
+    transcriber.h \
+    lettersplitter.h
 
 FORMS    += view.ui
