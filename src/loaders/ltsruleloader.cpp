@@ -1,5 +1,7 @@
 #include "ltsruleloader.h"
 #include <QJsonDocument>
+#include <QJsonArray>
+#include <QDebug>
 #include "../structures/token.h"
 
 LtsRuleLoader::LtsRuleLoader(QTextStream *inputStream)

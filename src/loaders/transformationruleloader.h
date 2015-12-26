@@ -3,6 +3,7 @@
 
 #include <QScriptEngine>
 #include <QTextStream>
+#include <QPointer>
 #include "../collections/List.h"
 #include "../structures/transformationrule.h"
 
