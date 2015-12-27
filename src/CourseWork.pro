@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     structures/ltsrule.cpp \
     reassembler.cpp \
     transcriber.cpp \
-    lettersplitter.cpp
+    lettersplitter.cpp \
+    phonetizer.cpp
 
 HEADERS  += view.h \
     collections/List.h \
@@ -43,6 +44,7 @@ HEADERS  += view.h \
     structures/ltsrule.h \
     reassembler.h \
     transcriber.h \
-    lettersplitter.h
+    lettersplitter.h \
+    phonetizer.h
 
 FORMS    += view.ui
