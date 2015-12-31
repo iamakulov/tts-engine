@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     reassembler.cpp \
     transcriber.cpp \
     lettersplitter.cpp \
-    phonetizer.cpp
+    phonetizer.cpp \
+    structures/audiodefinition.cpp
 
 HEADERS  += view.h \
     collections/List.h \
@@ -45,6 +46,7 @@ HEADERS  += view.h \
     reassembler.h \
     transcriber.h \
     lettersplitter.h \
-    phonetizer.h
+    phonetizer.h \
+    structures/audiodefinition.h
 
 FORMS    += view.ui
