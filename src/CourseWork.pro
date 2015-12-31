@@ -30,6 +30,7 @@ SOURCES += main.cpp\
     transcriber.cpp \
     lettersplitter.cpp \
     phonetizer.cpp \
+    audioconvertor.cpp \
     structures/soundtoaudiorule.cpp \
     structures/audiodefinition.cpp
 
@@ -48,6 +49,7 @@ HEADERS  += view.h \
     transcriber.h \
     lettersplitter.h \
     phonetizer.h \
+    audioconvertor.h \
     structures/soundtoaudiorule.h \
     structures/audiodefinition.h
 
