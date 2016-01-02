@@ -20,6 +20,7 @@ SOURCES += main.cpp\
     tokenizer.cpp \
     structures/tokendefinition.cpp \
     structures/token.cpp \
+    controller.cpp \
     transformer.cpp \
     structures/transformationrule.cpp \
     loaders/tokendefinitionloader.cpp \
@@ -42,6 +43,7 @@ HEADERS  += view.h \
     tokenizer.h \
     structures/tokendefinition.h \
     structures/token.h \
+    controller.h \
     transformer.h \
     structures/transformationrule.h \
     loaders/tokendefinitionloader.h \
