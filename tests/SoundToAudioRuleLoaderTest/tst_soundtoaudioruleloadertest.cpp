@@ -78,9 +78,9 @@ void SoundToAudioRuleLoaderTest::getData()
     QFETCH(QString, inputText);
     QFETCH(List<SoundToAudioRule>, rules);
 
-    QTextStream stream(&inputText);
+    QSharedPointer<QTextStream> stream(new QTextStream(&inputText));
 
-    QCOMPARE(SoundToAudioRuleLoader(&stream).getData(), rules);
+    QCOMPARE(SoundToAudioRuleLoader(stream).getData(), rules);
 }
 
 QTEST_APPLESS_MAIN(SoundToAudioRuleLoaderTest)

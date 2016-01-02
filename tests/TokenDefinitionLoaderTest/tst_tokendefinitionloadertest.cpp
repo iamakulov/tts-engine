@@ -51,9 +51,9 @@ void TokenDefinitionLoaderTest::getDefinitions()
     QFETCH(QString, inputText);
     QFETCH(List<TokenDefinition>, parsedTokens);
 
-    QTextStream stream(&inputText);
+    QSharedPointer<QTextStream> stream(new QTextStream(&inputText));
 
-    QCOMPARE(TokenDefinitionLoader(&stream).getData(), parsedTokens);
+    QCOMPARE(TokenDefinitionLoader(stream).getData(), parsedTokens);
 }
 
 QTEST_APPLESS_MAIN(TokenDefinitionLoaderTest)

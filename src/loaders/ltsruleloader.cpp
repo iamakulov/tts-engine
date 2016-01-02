@@ -4,7 +4,7 @@
 #include <QDebug>
 #include "../structures/token.h"
 
-LtsRuleLoader::LtsRuleLoader(QTextStream *inputStream)
+LtsRuleLoader::LtsRuleLoader(QSharedPointer<QTextStream> inputStream)
     : m_inputStream(inputStream)
 {
 

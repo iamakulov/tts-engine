@@ -4,7 +4,7 @@
 #include <QJsonObject>
 #include <QtDebug>
 
-TokenDefinitionLoader::TokenDefinitionLoader(QTextStream *inputStream)
+TokenDefinitionLoader::TokenDefinitionLoader(QSharedPointer<QTextStream> inputStream)
     : m_inputStream(inputStream)
 {
 

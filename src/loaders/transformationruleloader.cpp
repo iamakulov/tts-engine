@@ -6,7 +6,7 @@
 
 QPointer<QScriptEngine> TransformationRuleLoader::m_engine = nullptr;
 
-TransformationRuleLoader::TransformationRuleLoader(QTextStream *inputStream)
+TransformationRuleLoader::TransformationRuleLoader(QSharedPointer<QTextStream> inputStream)
     : m_inputStream(inputStream)
 {
     if (m_engine == nullptr) {

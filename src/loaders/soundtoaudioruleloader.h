@@ -1,6 +1,7 @@
 #ifndef SOUNDTOAUDIORULELOADER_H
 #define SOUNDTOAUDIORULELOADER_H
 
+#include <QSharedPointer>
 #include <QTextStream>
 #include "../collections/List.h"
 #include "../structures/soundtoaudiorule.h"
@@ -8,7 +9,7 @@
 class SoundToAudioRuleLoader
 {
 public:
-    SoundToAudioRuleLoader(QTextStream* inputStream);
+    SoundToAudioRuleLoader(QSharedPointer<QTextStream> inputStream);
 
     List<SoundToAudioRule> getData();
 
@@ -19,7 +20,7 @@ private /*methods*/:
     SoundToAudioRule parseSoundToAudioRule(const QString &sounds, const QString &audio) const;
     
 private /*members*/:
-    QTextStream* m_inputStream;
+    QSharedPointer<QTextStream> m_inputStream;
 };
 
 #endif // SOUNDTOAUDIORULELOADER_H

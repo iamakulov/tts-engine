@@ -45,9 +45,9 @@ void LtsRuleLoaderTest::getData()
     QFETCH(QString, inputText);
     QFETCH(List<LtsRule>, rules);
 
-    QTextStream stream(&inputText);
+    QSharedPointer<QTextStream> stream(new QTextStream(&inputText));
 
-    QCOMPARE(LtsRuleLoader(&stream).getData(), rules);
+    QCOMPARE(LtsRuleLoader(stream).getData(), rules);
 }
 
 QTEST_APPLESS_MAIN(LtsRuleLoaderTest)

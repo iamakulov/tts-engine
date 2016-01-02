@@ -3,7 +3,7 @@
 #include <QJsonObject>
 #include <QRegularExpression>
 
-SoundToAudioRuleLoader::SoundToAudioRuleLoader(QTextStream *inputStream)
+SoundToAudioRuleLoader::SoundToAudioRuleLoader(QSharedPointer<QTextStream> inputStream)
     : m_inputStream(inputStream)
 {
 

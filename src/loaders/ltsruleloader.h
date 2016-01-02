@@ -1,6 +1,7 @@
 #ifndef LTSRULELOADER_H
 #define LTSRULELOADER_H
 
+#include <QSharedPointer>
 #include <QTextStream>
 #include <QRegularExpression>
 #include "../collections/List.h"
@@ -10,7 +11,7 @@
 class LtsRuleLoader
 {
 public:
-    LtsRuleLoader(QTextStream* inputStream);
+    LtsRuleLoader(QSharedPointer<QTextStream> inputStream);
 
     List<LtsRule> getData();
 
@@ -24,7 +25,7 @@ private /*methods*/:
     List<Token> convertSoundsToTokens(const QStringList &sounds) const;
 
 private /*members*/:
-    QTextStream* m_inputStream;
+    QSharedPointer<QTextStream> m_inputStream;
 
     const QRegularExpression LTS_RULE_PATTERN = QRegularExpression(
         "^([\\w#]*)"         // amazi

@@ -113,8 +113,8 @@ void TransformationRuleLoaderTest::getData()
     QFETCH(List<Token>, tokens);
     QFETCH(List<Token>, transformationResult);
 
-    QTextStream inputStream(inputText.toUtf8());
-    List<TransformationRule> rules = TransformationRuleLoader(&inputStream).getData();
+    QSharedPointer<QTextStream> inputStream(new QTextStream(inputText.toUtf8()));
+    List<TransformationRule> rules = TransformationRuleLoader(inputStream).getData();
 
     QCOMPARE(Transformer(rules).transform(tokens), transformationResult);
 }

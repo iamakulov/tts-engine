@@ -1,6 +1,7 @@
 #ifndef TRANSFORMATIONRULELOADER_H
 #define TRANSFORMATIONRULELOADER_H
 
+#include <QSharedPointer>
 #include <QScriptEngine>
 #include <QTextStream>
 #include <QPointer>
@@ -10,7 +11,7 @@
 class TransformationRuleLoader
 {
 public:
-    TransformationRuleLoader(QTextStream* inputStream);
+    TransformationRuleLoader(QSharedPointer<QTextStream> inputStream);
 
     List<TransformationRule> getData();
 
@@ -28,7 +29,7 @@ private /*methods*/:
     static void resetEngineState();
 
 private /*members*/:
-    QTextStream* m_inputStream;
+    QSharedPointer<QTextStream> m_inputStream;
 
     // Declaring engine as a static property to prevent it from being destroyed with a TransformationRuleLoader instance.
     // It is required as the engine is used in lambdas passed outside of the class.
