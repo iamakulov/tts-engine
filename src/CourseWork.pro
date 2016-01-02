@@ -36,6 +36,7 @@ SOURCES += main.cpp\
     structures/audiodefinition.cpp \
     player.cpp \
     audioqueue.cpp \
+    app.cpp \
     loaders/soundtoaudioruleloader.cpp
 
 HEADERS  += view.h \
@@ -59,6 +60,7 @@ HEADERS  += view.h \
     structures/audiodefinition.h \
     player.h \
     audioqueue.h \
+    app.h \
     loaders/soundtoaudioruleloader.h
 
 FORMS    += view.ui
