@@ -38,6 +38,14 @@ void LtsRuleLoaderTest::getData_data()
             LtsRule(List<Token>(), List<Token> { Token(TokenName::LETTER, "b") }, List<Token>(), List<Token>{ Token(TokenName::SOUND, "b") }),
             LtsRule(List<Token>(), List<Token> { Token(TokenName::LETTER, "c") }, List<Token>(), List<Token>{ Token(TokenName::SOUND, "c") })
         };
+
+    QTest::newRow("Cyrillic characters")
+        << QString("[\"[б] = б\", \"[ц] = ц\", \"[я] = я\"]")
+        << List<LtsRule> {
+            LtsRule(List<Token>(), List<Token> { Token(TokenName::LETTER, "б") }, List<Token>(), List<Token>{ Token(TokenName::SOUND, "б") }),
+            LtsRule(List<Token>(), List<Token> { Token(TokenName::LETTER, "ц") }, List<Token>(), List<Token>{ Token(TokenName::SOUND, "ц") }),
+            LtsRule(List<Token>(), List<Token> { Token(TokenName::LETTER, "я") }, List<Token>(), List<Token>{ Token(TokenName::SOUND, "я") })
+        };
 }
 
 void LtsRuleLoaderTest::getData()
