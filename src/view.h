@@ -15,6 +15,12 @@ public:
     explicit View(QWidget *parent = 0);
     ~View();
 
+signals:
+    void textSubmitted(QString text);
+
+private slots:
+    void handleSubmitClick();
+
 private:
     Ui::View *ui;
 };

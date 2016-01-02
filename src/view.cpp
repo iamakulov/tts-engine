@@ -12,3 +12,8 @@ View::~View()
 {
     delete ui;
 }
+
+void View::handleSubmitClick()
+{
+    emit textSubmitted(ui->textEdit->toPlainText());
+}
