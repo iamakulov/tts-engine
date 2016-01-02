@@ -2,6 +2,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QRegularExpression>
+#include <QDebug>
 
 SoundToAudioRuleLoader::SoundToAudioRuleLoader(QSharedPointer<QTextStream> inputStream)
     : m_inputStream(inputStream)
