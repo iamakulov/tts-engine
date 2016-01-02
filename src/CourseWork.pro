@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     phonetizer.cpp \
     audioconvertor.cpp \
     structures/soundtoaudiorule.cpp \
-    structures/audiodefinition.cpp
+    structures/audiodefinition.cpp \
+    loaders/soundtoaudioruleloader.cpp
 
 HEADERS  += view.h \
     collections/List.h \
@@ -51,6 +52,7 @@ HEADERS  += view.h \
     phonetizer.h \
     audioconvertor.h \
     structures/soundtoaudiorule.h \
-    structures/audiodefinition.h
+    structures/audiodefinition.h \
+    loaders/soundtoaudioruleloader.h
 
 FORMS    += view.ui
