@@ -297,6 +297,54 @@ void PhonetizerTest::phonetize_data()
             Token(TokenName::SOUND, "i")
         };
 
+    QTest::newRow("Word separators without matching rules")
+        << List<Token> {
+            Token(TokenName::WORD_SEPARATOR),
+            Token(TokenName::LETTER, "t"),
+            Token(TokenName::LETTER, "h"),
+            Token(TokenName::LETTER, "i"),
+            Token(TokenName::LETTER, "s"),
+            Token(TokenName::WORD_SEPARATOR)
+        }
+        << List<LtsRule> {
+            LtsRule(
+                _,
+                List<Token> {
+                    Token(TokenName::LETTER, "t"),
+                    Token(TokenName::LETTER, "h")
+                },
+                _,
+                List<Token> {
+                    Token(TokenName::SOUND, "th")
+                }
+            ),
+            LtsRule(
+                _,
+                List<Token> {
+                    Token(TokenName::LETTER, "i")
+                },
+                _,
+                List<Token> {
+                    Token(TokenName::SOUND, "i")
+                }
+            ),
+            LtsRule(
+                _,
+                List<Token> {
+                    Token(TokenName::LETTER, "s")
+                },
+                _,
+                List<Token> {
+                    Token(TokenName::SOUND, "s")
+                }
+            )
+        }
+        << List<Token> {
+            Token(TokenName::SOUND, "th"),
+            Token(TokenName::SOUND, "i"),
+            Token(TokenName::SOUND, "s")
+        };
+
     QTest::newRow("Rules with previous context")
         << List<Token> {
             Token(TokenName::LETTER, "t"),
