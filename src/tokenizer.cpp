@@ -16,7 +16,8 @@ List<Token> Tokenizer::tokenize(const QString &text) const
     while (processedText.length() > 0) {
         auto matchingDefinitions = m_tokenDefinitions
             .mappedTo<QPair<TokenDefinition, int>>([processedText](auto tokenDefinition) {
-                int parsedTokenLength = QRegularExpression("^" + tokenDefinition.pattern()).match(processedText).capturedLength();
+                int parsedTokenLength = QRegularExpression("^" + tokenDefinition.pattern(), QRegularExpression::UseUnicodePropertiesOption)
+                        .match(processedText).capturedLength();
                 return qMakePair(tokenDefinition, parsedTokenLength);
             })
             .sorted([](auto left, auto right) {

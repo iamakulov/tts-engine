@@ -33,7 +33,7 @@ private /*members*/:
         "([\\w#]*)"          // ess
         "\\s?=\\s?"          // =
         "(\\S+(\\s\\S+)*)$"  // n n
-    );
+    , QRegularExpression::UseUnicodePropertiesOption);
 };
 
 #endif // LTSRULELOADER_H

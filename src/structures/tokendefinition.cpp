@@ -1,7 +1,7 @@
 #include "tokendefinition.h"
 
 TokenDefinition::TokenDefinition(QString name, QString pattern)
-    : m_name(name), m_pattern(pattern), m_regExp("^" + pattern + "$")
+    : m_name(name), m_pattern(pattern), m_regExp("^" + pattern + "$", QRegularExpression::UseUnicodePropertiesOption)
 {
 
 }
