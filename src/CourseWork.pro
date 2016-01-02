@@ -33,6 +33,7 @@ SOURCES += main.cpp\
     audioconvertor.cpp \
     structures/soundtoaudiorule.cpp \
     structures/audiodefinition.cpp \
+    player.cpp \
     audioqueue.cpp \
     loaders/soundtoaudioruleloader.cpp
 
@@ -54,6 +55,7 @@ HEADERS  += view.h \
     audioconvertor.h \
     structures/soundtoaudiorule.h \
     structures/audiodefinition.h \
+    player.h \
     audioqueue.h \
     loaders/soundtoaudioruleloader.h
 
