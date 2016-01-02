@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui script
+QT       += core gui script multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -33,6 +33,7 @@ SOURCES += main.cpp\
     audioconvertor.cpp \
     structures/soundtoaudiorule.cpp \
     structures/audiodefinition.cpp \
+    audioqueue.cpp \
     loaders/soundtoaudioruleloader.cpp
 
 HEADERS  += view.h \
@@ -53,6 +54,7 @@ HEADERS  += view.h \
     audioconvertor.h \
     structures/soundtoaudiorule.h \
     structures/audiodefinition.h \
+    audioqueue.h \
     loaders/soundtoaudioruleloader.h
 
 FORMS    += view.ui
