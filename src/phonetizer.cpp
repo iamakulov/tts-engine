@@ -31,7 +31,7 @@ List<Token> Phonetizer::phonetize(List<Token> letters) const
 
     // The rule to remove all unrecognized letters
     TransformationRule letterRemovalRule = TransformationRule(
-        TransformationRule::MatchingSequenceType { [](Token token) { return token.name() == TokenName::LETTER; } },
+        TransformationRule::MatchingSequenceType { [](Token token) { return token.name() != TokenName::SOUND; } },
         [](List<Token>) { return List<Token>(); }
     );
 
