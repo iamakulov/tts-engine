@@ -3,5 +3,7 @@
 *.exe
 *.autosave
 *.pro.user
+*.pro.user.*
 Makefile
 Makefile.*
+build*/
