@@ -16,6 +16,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="label">
+     <property name="locale">
+      <locale language="Russian" country="Russia"/>
+     </property>
      <property name="text">
       <string>Наберите текст, который нужно произнести:</string>
      </property>
@@ -26,6 +29,9 @@
    </item>
    <item>
     <widget class="QTextEdit" name="textEdit">
+     <property name="locale">
+      <locale language="Russian" country="Russia"/>
+     </property>
      <property name="tabChangesFocus">
       <bool>true</bool>
      </property>
@@ -38,6 +44,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="submitButton">
+       <property name="locale">
+        <locale language="Russian" country="Russia"/>
+       </property>
        <property name="text">
         <string>Произнести</string>
        </property>
