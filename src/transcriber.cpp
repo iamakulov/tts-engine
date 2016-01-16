@@ -9,6 +9,9 @@ Transcriber::Transcriber(List<TransformationRule> rules)
 
 List<Token> Transcriber::transcribe(List<Token> data) const
 {
-    return Transformer(m_rules).transform(data);
+    return Transformer(m_rules).transform(data)
+        .filtered([](Token token) {
+            return token.name() == TokenName::WORD;
+        });
 }
 
