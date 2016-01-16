@@ -20,6 +20,7 @@ signals:
 
 private slots:
     void handleSubmitClick();
+    void updateSubmitButton();
 
 private:
     Ui::View *ui;

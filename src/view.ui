@@ -88,9 +88,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>textEdit</sender>
+   <signal>textChanged()</signal>
+   <receiver>View</receiver>
+   <slot>updateSubmitButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>348</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>textSubmitted(QString)</signal>
   <slot>handleSubmitClick()</slot>
+  <slot>updateSubmitButton()</slot>
  </slots>
 </ui>

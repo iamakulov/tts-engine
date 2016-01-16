@@ -6,6 +6,7 @@ View::View(QWidget *parent) :
     ui(new Ui::View)
 {
     ui->setupUi(this);
+    updateSubmitButton();
 }
 
 View::~View()
@@ -16,4 +17,9 @@ View::~View()
 void View::handleSubmitClick()
 {
     emit textSubmitted(ui->textEdit->toPlainText());
+}
+
+void View::updateSubmitButton()
+{
+    ui->submitButton->setEnabled(ui->textEdit->toPlainText().length() > 0);
 }
