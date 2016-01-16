@@ -11,7 +11,7 @@ List<Token> Transformer::transform(List<Token> tokens) const
     List<Token> transformedTokens = tokens;
     for (int i = 0; i < transformedTokens.length(); ++i) {
         m_rules
-            // Filter the rules that expect to match a sequence not longer that the current token sequence
+            // Filter the rules that expect to match a sequence not longer than the current token sequence
             .filtered([transformedTokens, i](TransformationRule rule) {
                 return rule.matchingSequence().length() <= transformedTokens.length() - i;
             })
