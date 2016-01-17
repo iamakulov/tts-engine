@@ -11,14 +11,11 @@ List<Token> Transformer::transform(List<Token> tokens) const
     List<Token> transformedTokens = tokens;
     for (int i = 0; i < transformedTokens.length(); ++i) {
         m_rules
-            // Filter the rules that expect to match a sequence not longer than the current token sequence
-            .filtered([transformedTokens, i](TransformationRule rule) {
-                return rule.matchingSequence().length() <= transformedTokens.length() - i;
-            })
             // Process each rule
             .forEach([&transformedTokens, i, this](TransformationRule rule) {
+                bool ruleNotLongerTokens = rule.matchingSequence().length() <= transformedTokens.length() - i;
                 auto tokensToMatch = transformedTokens.mid(i, rule.matchingSequence().length());
-                if (ruleMatches(rule, tokensToMatch)) {
+                if (ruleNotLongerTokens && ruleMatches(rule, tokensToMatch)) {
                     auto newTokens = rule.handler()(tokensToMatch);
                     transformedTokens = transformedTokens.mid(0, i) + newTokens + transformedTokens.mid(i + rule.matchingSequence().length());
                 }
