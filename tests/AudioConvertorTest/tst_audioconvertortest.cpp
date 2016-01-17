@@ -114,6 +114,27 @@ void AudioConvertorTest::convert_data()
             AudioDefinition("audio.wav", 100, 200),
             AudioDefinition("audio.wav", 200, 300)
         };
+
+    QTest::newRow("Multiple sound match")
+        << List<Token> {
+            Token(TokenName::SOUND, "th"),
+            Token(TokenName::SOUND, "i"),
+            Token(TokenName::SOUND, "s")
+        }
+        << List<SoundToAudioRule> {
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "th"), Token(TokenName::SOUND, "i") },
+                AudioDefinition("audio.wav", 0, 200)
+            ),
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "s") },
+                AudioDefinition("audio.wav", 200, 300)
+            )
+        }
+        << List<AudioDefinition> {
+            AudioDefinition("audio.wav", 0, 200),
+            AudioDefinition("audio.wav", 200, 300)
+        };
 }
 
 void AudioConvertorTest::convert()
