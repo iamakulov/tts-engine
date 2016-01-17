@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QMediaPlayer>
-#include <QMediaPlaylist>
 #include "collections/List.h"
 #include "structures/audiodefinition.h"
 
@@ -19,14 +18,13 @@ signals:
     void queueFinished();
 
 private /*methods*/:
-    void playAudio(int index);
+    void playAudio(AudioDefinition audio);
 
 private slots:
     void switchAudio();
 
 private /*members*/:
     QMediaPlayer m_mediaPlayer;
-    QMediaPlaylist m_mediaPlaylist;
     List<AudioDefinition> m_audios;
     int m_currentAudio = 0;
 };
