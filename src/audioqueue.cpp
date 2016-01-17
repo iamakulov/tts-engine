@@ -15,7 +15,12 @@ void AudioQueue::play()
 
 void AudioQueue::playAudio(AudioDefinition audio)
 {
-    m_mediaPlayer.setMedia(QUrl::fromLocalFile(audio.file()));
+    QUrl previousUrl = m_mediaPlayer.media().canonicalUrl();
+    QUrl newUrl = QUrl::fromLocalFile(audio.file());
+    if (previousUrl != newUrl) {
+        m_mediaPlayer.setMedia(QUrl::fromLocalFile(audio.file()));
+    }
+
     m_mediaPlayer.setPosition(audio.startTime());
 
     QSharedPointer<QMetaObject::Connection> connection(new QMetaObject::Connection);
