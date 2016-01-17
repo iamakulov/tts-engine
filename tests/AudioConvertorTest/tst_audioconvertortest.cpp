@@ -135,6 +135,46 @@ void AudioConvertorTest::convert_data()
             AudioDefinition("audio.wav", 0, 200),
             AudioDefinition("audio.wav", 200, 300)
         };
+
+    QTest::newRow("Rules matching more sounds take precedence")
+        << List<Token> {
+            Token(TokenName::SOUND, "t"),
+            Token(TokenName::SOUND, "h"),
+            Token(TokenName::SOUND, "i"),
+            Token(TokenName::SOUND, "s")
+        }
+        << List<SoundToAudioRule> {
+            // Rules where the one with more sounds comes first
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "t"), Token(TokenName::SOUND, "h") },
+                AudioDefinition("audio.wav", 0, 100)
+            ),
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "t") },
+                AudioDefinition("audio.wav", 100, 200)
+            ),
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "h") },
+                AudioDefinition("audio.wav", 200, 300)
+            ),
+            // Rules where the one with more sounds comes last
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "i") },
+                AudioDefinition("audio.wav", 300, 400)
+            ),
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "s") },
+                AudioDefinition("audio.wav", 400, 500)
+            ),
+            SoundToAudioRule(
+                List<Token> { Token(TokenName::SOUND, "i"), Token(TokenName::SOUND, "s") },
+                AudioDefinition("audio.wav", 500, 600)
+            )
+        }
+        << List<AudioDefinition> {
+            AudioDefinition("audio.wav", 0, 100),
+            AudioDefinition("audio.wav", 500, 600)
+        };
 }
 
 void AudioConvertorTest::convert()
