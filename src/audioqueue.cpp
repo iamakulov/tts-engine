@@ -4,7 +4,7 @@
 AudioQueue::AudioQueue(List<AudioDefinition> audios, QObject *parent)
     : QObject(parent), m_audios(audios)
 {
-    m_mediaPlayer.setNotifyInterval(20);
+    m_mediaPlayer.setNotifyInterval(1);
 }
 
 void AudioQueue::play()
