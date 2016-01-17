@@ -3,9 +3,11 @@
 #include "structures/transformationrule.h"
 
 AudioConvertor::AudioConvertor(const List<SoundToAudioRule> &rules)
-    : m_rules(rules)
 {
-
+    // Sort rules by the sound count in descending order
+    m_rules = rules.sorted([](SoundToAudioRule left, SoundToAudioRule right) {
+        return right.sounds().length() < left.sounds().length();
+    });
 }
 
 List<AudioDefinition> AudioConvertor::convert(List<Token> sounds) const
